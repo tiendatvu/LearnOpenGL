@@ -27,5 +27,11 @@
     <ClCompile Include="src\HelloTriangle\HelloTriangleTask2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\HelloTriangle\HelloTriangleTask3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HelloTriangle\HelloTriangleTask4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

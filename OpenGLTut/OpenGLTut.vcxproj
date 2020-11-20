@@ -128,6 +128,8 @@
     <ClCompile Include="src\HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\HelloTriangle\HelloTriangleTask2.cpp" />
+    <ClCompile Include="src\HelloTriangle\HelloTriangleTask3.cpp" />
+    <ClCompile Include="src\HelloTriangle\HelloTriangleTask4.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
