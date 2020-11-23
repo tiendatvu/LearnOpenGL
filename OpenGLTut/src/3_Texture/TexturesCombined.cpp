@@ -1,4 +1,4 @@
-#include <glad/glad.h>
+﻿#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "stb_image.h"
 
@@ -104,7 +104,7 @@ int main()
     // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
     char imageFile[maxDir];
     std::strncpy(imageFile, currentDir, maxDir - 1);
-    std::strncat(imageFile, "/Resources/imgs/container.jpg", maxDir - strlen(imageFile) - 1);
+    std::strncat(imageFile, "/Resources/imgs/wall.jpg", maxDir - strlen(imageFile) - 1);
     unsigned char *data = stbi_load(imageFile, &width, &height, &nrChannels, 0);
     if (data)
     {

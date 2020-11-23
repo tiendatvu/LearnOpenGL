@@ -57,13 +57,16 @@
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dependencies\ShaderClass\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\3_Texture\Textures.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\3_Texture\TexturesCombined.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\3_Texture\TextureTask1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -82,7 +85,7 @@
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dependencies\ShaderClass\Shader.h">
+    <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -93,5 +96,11 @@
     <Image Include="Resources\imgs\wall.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\imgs\awesomeface.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Dependencies\OtherLibs\README.txt" />
   </ItemGroup>
 </Project>
