@@ -51,13 +51,19 @@
     <ClCompile Include="src\2_Shaders\ShaderTask3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\3_Texture\TextureTask1.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Dependencies\glad\src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\ShaderClass\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\3_Texture\Textures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\3_Texture\TexturesCombined.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,10 +74,24 @@
     <None Include="src\2_Shaders\ShaderFiles\shader3.vs" />
     <None Include="src\2_Shaders\ShaderFiles\Shader4.frs" />
     <None Include="src\2_Shaders\ShaderFiles\Shader4.vs" />
+    <None Include="src\3_Texture\ShaderFiles\Shader1.vs" />
+    <None Include="src\3_Texture\ShaderFiles\Shader1.frs" />
+    <None Include="src\3_Texture\ShaderFiles\Shader2.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Dependencies\ShaderClass\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\imgs\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\wall.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

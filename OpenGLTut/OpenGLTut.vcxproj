@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{613E99B2-9605-40C3-873A-291A51D6C1E7}</ProjectGuid>
     <RootNamespace>OpenGLTut</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -70,18 +70,19 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Dependencies\glad\include;$(SolutionDir)Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>opengl32.lib; glfw3.lib; glfw3dll.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -102,6 +103,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -126,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="Dependencies\glad\src\glad.c" />
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
+    <ClCompile Include="Dependencies\ShaderClass\Shader.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask2.cpp" />
@@ -138,9 +141,11 @@
     <ClCompile Include="src\2_Shaders\ShaderTask1.cpp" />
     <ClCompile Include="src\2_Shaders\ShaderTask2.cpp" />
     <ClCompile Include="src\2_Shaders\ShaderTask3.cpp" />
-    <ClCompile Include="src\3_Texture\TextureTask1.cpp" />
+    <ClCompile Include="src\3_Texture\Textures.cpp" />
+    <ClCompile Include="src\3_Texture\TexturesCombined.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dependencies\ShaderClass\Shader.h" />
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +155,13 @@
     <None Include="src\2_Shaders\ShaderFiles\shader3.vs" />
     <None Include="src\2_Shaders\ShaderFiles\Shader4.frs" />
     <None Include="src\2_Shaders\ShaderFiles\Shader4.vs" />
+    <None Include="src\3_Texture\ShaderFiles\Shader1.frs" />
+    <None Include="src\3_Texture\ShaderFiles\Shader1.vs" />
+    <None Include="src\3_Texture\ShaderFiles\Shader2.frs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\imgs\container.jpg" />
+    <Image Include="Resources\imgs\wall.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

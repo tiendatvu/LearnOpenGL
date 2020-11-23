@@ -3,7 +3,7 @@
 //
 //#include "shaderClass/Shader.h"
 //#include <iostream>
-//#include <windows.h>
+//#include <Windows.h>
 //#include <string.h>
 //
 //void framebuffer_size_callback(GLFWwindow* window, int width, int height);
