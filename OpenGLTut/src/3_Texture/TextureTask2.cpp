@@ -1,9 +1,9 @@
-﻿//#include <glad/glad.h>
+//// Task2: Make sure only the happy face looks in the other/reverse direction by changing the fragment shader
+//
+//#include <glad/glad.h>
 //#include <GLFW/glfw3.h>
-//#include "stb_image.h"
-//
+//#include <stb_image.h>
 //#include <ShaderClass/Shader.h>
-//
 //#include <iostream>
 //#include <windows.h>
 //
@@ -23,7 +23,7 @@
 //    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 //
 //    // glfw window creation
-//    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL_Texture", NULL, NULL);
+//    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "TexTureTask1", NULL, NULL);
 //    if (window == NULL)
 //    {
 //        std::cout << "Failed to create GLFW window" << std::endl;
@@ -41,26 +41,25 @@
 //    }
 //
 //    // build and compile our shader program
-//    const unsigned long maxDir = 260;
+//    const unsigned int maxDir = 260;
 //    char currentDir[maxDir];
 //    GetCurrentDirectoryA(maxDir, currentDir);
 //    std::string vsFile1 = "/src/3_Texture/ShaderFiles/shader1.vs";
 //    std::string frsFile1 = "/src/3_Texture/ShaderFiles/shader2.frs";
 //    Shader ourShader(currentDir + vsFile1, currentDir + frsFile1);
 //
-//    // set up vertex data (and buffer(s)) and configure vertex attributes
-//    // ------------------------------------------------------------------
+//    // setup vertex data and buffers and configure vertex atrributes
 //    float vertices[] = {
-//        // positions          // colors           // texture coords
-//        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-//        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+//        // positions         // colors           // texture coords
+//        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   2.0f, 2.0f, // top right
+//        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   2.0f, 0.0f, // bottom right
 //        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+//        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 2.0f,  // top left 
 //    };
 //
 //    unsigned int indices[] = {
-//        0, 1, 3, // first triangle
-//        1, 2, 3  // second triangle
+//        0,1,3,//first triangle
+//        1,2,3 // second triangle
 //    };
 //
 //    unsigned int VBO, VAO, EBO;
@@ -80,32 +79,32 @@
 //    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 //    glEnableVertexAttribArray(0);
 //    // color attribute
-//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)((3 * sizeof(float))));
+//    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
 //    glEnableVertexAttribArray(1);
 //    // texture coord attribute
-//    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)((6 * sizeof(float))));
+//    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
 //    glEnableVertexAttribArray(2);
 //
 //    // load and create texture
 //    unsigned int texture1, texture2;
 //
-//    // texture 1
+//    // Assign values for texture 1
 //    glGenTextures(1, &texture1);
 //    glBindTexture(GL_TEXTURE_2D, texture1); // all upcoming GL_TEXTURE_2D operations now have effect on this texture object
-//    // set the texture wrapping parameters
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // set texture wrapping to GL_REPEAT (default wrapping method)
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+//                                            // set the texture wrapping parameters
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // set texture wrapping to GL_REPEAT (default wrapping method)
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 //    // set texture filtering parameters
 //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 //    // load image, create texture and generate mipmaps
 //    int width, height, nrChannels;
-//    stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis
+//    stbi_set_flip_vertically_on_load(true);
 //    // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
 //    char imageFile[maxDir];
 //    std::strncpy(imageFile, currentDir, maxDir - 1);
-//    std::strncat(imageFile, "/Resources/imgs/wall.jpg", maxDir - strlen(imageFile) - 1);
-//    unsigned char *data = stbi_load(imageFile, &width, &height, &nrChannels, 0);
+//    std::strncat(imageFile, "/Resources/imgs/container.jpg", maxDir - strlen(imageFile) - 1);
+//    unsigned char* data = stbi_load(imageFile, &width, &height, &nrChannels, 0);
 //    if (data)
 //    {
 //        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -117,13 +116,13 @@
 //    }
 //    stbi_image_free(data);
 //
-//    // texture 2
+//    // Assign values for texture 2
 //    glGenTextures(1, &texture2);
 //    glBindTexture(GL_TEXTURE_2D, texture2);
 //    // set the texture wrapping parameters
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-//    // set texture filtering parameters
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+//    // set texture filtering paramters
 //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 //    // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.    
@@ -143,8 +142,8 @@
 //    stbi_image_free(data);
 //
 //    // tell opengl for each sampler to which texture unit its belongs to (only has to be done once)
-//    ourShader.use(); // don't forget to activate/use the shader before setting uniforms!
-//    // either set it manually like so:
+//    ourShader.use(); // don't forget to active/use the shader before setting uniforms
+//                     // either set it manually like so:
 //    glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0);
 //    // or set via the texture class
 //    ourShader.setInt("texture2", 1);
@@ -153,11 +152,9 @@
 //    while (!glfwWindowShouldClose(window))
 //    {
 //        // input
-//        // -----
 //        processInput(window);
 //
 //        // render
-//        // ------
 //        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 //        glClear(GL_COLOR_BUFFER_BIT);
 //
@@ -172,18 +169,16 @@
 //        glBindVertexArray(VAO);
 //        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 //
-//        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-//        // -------------------------------------------------------------------------------
+//        // glfw: swap buffers and poll IO envents
 //        glfwSwapBuffers(window);
 //        glfwPollEvents();
 //    }
-//    // optional: de-allocate all resources once they've outlived their purpose:
-//    // ------------------------------------------------------------------------
+//
+//    // optional: de-allocate all resources once they've outlived their purpose
 //    glDeleteVertexArrays(1, &VAO);
 //    glDeleteBuffers(1, &VBO);
 //    glDeleteBuffers(1, &EBO);
-//    // glfw: terminate, clearing all previously allocated GLFW resources.
-//    // ------------------------------------------------------------------
+//    // glfw: terminate, clearing all previously allocated GLFW resources
 //    glfwTerminate();
 //    return 0;
 //}
