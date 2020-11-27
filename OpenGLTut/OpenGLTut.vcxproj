@@ -70,11 +70,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -147,9 +147,11 @@
     <ClCompile Include="src\3_Texture\TextureTask2.cpp" />
     <ClCompile Include="src\3_Texture\TextureTask3.cpp" />
     <ClCompile Include="src\3_Texture\TextureTask4.cpp" />
+    <ClCompile Include="src\4_Transformations\Transformations.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
+    <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h" />
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>
   <ItemGroup>

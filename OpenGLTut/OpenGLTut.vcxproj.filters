@@ -78,6 +78,9 @@
     <ClCompile Include="src\3_Texture\TextureTask4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\4_Transformations\Transformations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -97,6 +100,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
