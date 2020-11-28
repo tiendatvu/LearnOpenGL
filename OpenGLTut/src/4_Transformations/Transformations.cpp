@@ -52,18 +52,19 @@ int main()
     const unsigned int maxDir = 260;
     char currentDir[maxDir];
     GetCurrentDirectoryA(maxDir, currentDir);
-    std::string vsFile1 = "/src/4_Transformations/ShaderFiles/Shader.vs";
-    std::string frsFile1 = "/src/4_Transformations/ShaderFiles/shader.frs";
+    std::string vsFile1 = "/src/4_Transformations/ShaderFiles/Shader1.vs";
+    std::string frsFile1 = "/src/4_Transformations/ShaderFiles/shader1.frs";
     Shader ourShader(currentDir + vsFile1, currentDir + frsFile1);
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
+    float textureScale = 1.0f;
     float vertices[] = {
         // positions          // texture coords
-         0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right
-         0.5f, -0.5f, 0.0f,   1.0f, 0.0f, // bottom right
-        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, // bottom left
-        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f  // top left 
+         0.5f,  0.5f, 0.0f,   textureScale, textureScale, // top right
+         0.5f, -0.5f, 0.0f,   textureScale, 0.0f, // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f,         0.0f, // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f,         textureScale  // top left 
     };
     unsigned int indices[] = {
         0, 1, 3, // first triangle
@@ -124,7 +125,7 @@ int main()
     glBindTexture(GL_TEXTURE_2D, texture2);
     // set the texture wrapping parameters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_MIRRORED_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
     // set texture filtering paramters
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -163,15 +164,22 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 
         // bind textures on corresponding texture units
-        glActiveTexture(GL_TEXTURE0);
+        glActiveTexture(GL_TEXTURE0);  // Texture0 for the 0 position defined above
         glBindTexture(GL_TEXTURE_2D, texture1);
-        glActiveTexture(GL_TEXTURE1);
+        glActiveTexture(GL_TEXTURE1); // Texture1 for the 1st position defined above
         glBindTexture(GL_TEXTURE_2D, texture2);
 
         // create transformations
         glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
+        // Task 1:
+        //transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        //transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        //transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 1.0f));
+
+        // Task 2:
+        float a = sin(glfwGetTime());
+        transform = glm::scale(transform, glm::vec3(a, a, 0.0f));
 
         // get matrix's uniform location and set matrix
         ourShader.use();
@@ -181,6 +189,19 @@ int main()
         // render container
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+        // Task 2':
+        // second transformation
+        // ---------------------
+        transform = glm::mat4(1.0f); // reset it to identity matrix
+        transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+        float scaleAmount = sin(glfwGetTime());
+        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]); // this time take the matrix value array's first element as its memory pointer value
+
+        // now with the uniform matrix being replaced with new transformations, draw it again.
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
