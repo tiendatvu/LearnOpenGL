@@ -20,18 +20,14 @@
 //
 //int main()
 //{
-//    // glfw: init and configure
+//    // init and configure
 //    glfwInit();
 //    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 //    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 //    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 //
-//#ifdef __APPLE__
-//    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-//#endif
-//
-//    // glfw window creation
-//    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL_Transformations", NULL, NULL);
+//    // window creation
+//    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL_CoordinateSystems1", NULL, NULL);
 //    if (window == NULL)
 //    {
 //        std::cout << "Failed to create GLFW window" << std::endl;
@@ -41,30 +37,69 @@
 //    glfwMakeContextCurrent(window);
 //    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 //
-//    // glad: load all OPENGL fucnion pointer
+//    // glad: load all OpenGL
 //    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 //    {
 //        std::cout << "Failed to initialize GLAD" << std::endl;
 //        return -1;
 //    }
 //
+//    // configure global opengl state
+//    // -----------------------------
+//    // example 3:
+//    glEnable(GL_DEPTH_TEST);
+//
 //    // build and compile our shader program
 //    const unsigned int maxDir = 260;
 //    char currentDir[maxDir];
 //    GetCurrentDirectoryA(maxDir, currentDir);
-//    std::string vsFile1 = "/src/4_Transformations/ShaderFiles/Shader1.vs";
-//    std::string frsFile1 = "/src/4_Transformations/ShaderFiles/shader1.frs";
+//    std::string vsFile1 = "/src/5_CoordinateSystems/ShaderFiles/Shader1.vs";
+//    std::string frsFile1 = "/src/5_CoordinateSystems/ShaderFiles/shader1.frs";
 //    Shader ourShader(currentDir + vsFile1, currentDir + frsFile1);
 //
-//    // set up vertex data (and buffer(s)) and configure vertex attributes
-//    // ------------------------------------------------------------------
-//    float textureScale = 1.0f;
+//    // set up vertex data and buffers and configure vertex attributes
 //    float vertices[] = {
-//        // positions          // texture coords
-//         0.5f,  0.5f, 0.0f,   textureScale, textureScale, // top right
-//         0.5f, -0.5f, 0.0f,   textureScale, 0.0f, // bottom right
-//        -0.5f, -0.5f, 0.0f,   0.0f,         0.0f, // bottom left
-//        -0.5f,  0.5f, 0.0f,   0.0f,         textureScale  // top left 
+//    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+//     0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+//     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+//    -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+//
+//    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+//     0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+//     0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+//    -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+//    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//
+//    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//    -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//    -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//
+//     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//     0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//     0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//
+//    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//     0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+//     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+//     0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+//    -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//    -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//
+//    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+//     0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//     0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//    -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+//    -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 //    };
 //    unsigned int indices[] = {
 //        0, 1, 3, // first triangle
@@ -87,21 +122,21 @@
 //    // position attribute
 //    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 //    glEnableVertexAttribArray(0);
-//    // texture coord attribute
+//
 //    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
 //    glEnableVertexAttribArray(1);
 //
-//    // load and create texture
+//    // load and create textures
 //    unsigned int texture1, texture2;
-//    // texture 1
+//    // texture1
 //    glGenTextures(1, &texture1);
 //    glBindTexture(GL_TEXTURE_2D, texture1);
 //    // set the texture wrapping parameters
 //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 //    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 //    // set texture filtering parameters
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_REPEAT);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_REPEAT);
 //    // load image, create texture and generate mipmaps
 //    int width, height, nrChannels;
 //    stbi_set_flip_vertically_on_load(true); // tell stb_image.h to flip loaded texture's on the y-axis
@@ -120,6 +155,7 @@
 //        std::cout << "Failed to load texture, file: container.jpg" << std::endl;
 //    }
 //    stbi_image_free(data);
+//
 //    // texture 2
 //    glGenTextures(1, &texture2);
 //    glBindTexture(GL_TEXTURE_2D, texture2);
@@ -151,64 +187,61 @@
 //    ourShader.setInt("texture2", 1);
 //
 //    // render loop
-//    // -----------
 //    while (!glfwWindowShouldClose(window))
 //    {
 //        // input
-//        // -----
 //        processInput(window);
 //
 //        // render
-//        // ------
 //        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-//        glClear(GL_COLOR_BUFFER_BIT);
 //
-//        // bind textures on corresponding texture units
-//        glActiveTexture(GL_TEXTURE0);  // Texture0 for the 0 position defined above
+//        // example 2:
+//        //glClear(GL_COLOR_BUFFER_BIT);
+//        // example 3:
+//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//
+//        // bind texture on corresponding texture units
+//        glActiveTexture(GL_TEXTURE0);
 //        glBindTexture(GL_TEXTURE_2D, texture1);
-//        glActiveTexture(GL_TEXTURE1); // Texture1 for the 1st position defined above
+//        glActiveTexture(GL_TEXTURE1);
 //        glBindTexture(GL_TEXTURE_2D, texture2);
 //
-//        // create transformations
-//        glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-//
-//        // Task 1:
-//        //transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-//        //transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-//        //transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 1.0f));
-//
-//        // Task 2:
-//        float a = sin(glfwGetTime());
-//        transform = glm::scale(transform, glm::vec3(a, a, 0.0f));
-//
-//        // get matrix's uniform location and set matrix
+//        // active our shader
 //        ourShader.use();
-//        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
-//        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+//
+//        // create transformations
+//        glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+//        glm::mat4 view = glm::mat4(1.0f);
+//        glm::mat4 projection = glm::mat4(1.0f);
+//        
+//        //
+//        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f)); // rotate around the x-axis -> see the top a bit further than the bottom of the mixed texture
+//        //model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(0.5f, 1.0f, 0.0f)); // rotate around the x-axis -> see the top a bit further than the bottom of the mixed texture
+//        //model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3(0.5f, 1.0f, 0.0f));
+//        
+//        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // move the texture a bit further from the camera position 
+//        // transform from the given coordinates (after view matrix applied) to clip coordinates,
+//        // and also tranform the w component -> applie perspective division -> look more 3D
+//        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        // retrieve the matrix uniform locations
+//        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
+//        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
+//        // pass them to the shaders(3 different ways)
+//        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+//        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
+//        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+//        ourShader.setMat4("projection", projection);
 //
 //        // render container
 //        glBindVertexArray(VAO);
-//        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+//        glDrawArrays(GL_TRIANGLES, 0, 36);
 //
-//        // Task 2':
-//        // second transformation
-//        // ---------------------
-//        transform = glm::mat4(1.0f); // reset it to identity matrix
-//        transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
-//        float scaleAmount = sin(glfwGetTime());
-//        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
-//        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]); // this time take the matrix value array's first element as its memory pointer value
+//        //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 //
-//        // now with the uniform matrix being replaced with new transformations, draw it again.
-//        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-//
-//
-//        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-//        // -------------------------------------------------------------------------------
+//        // glfw: swap buffers and poll IO events
 //        glfwSwapBuffers(window);
 //        glfwPollEvents();
 //    }
-//
 //    // optional: de-allocate all resources once they've outlived their purpose:
 //    // ------------------------------------------------------------------------
 //    glDeleteVertexArrays(1, &VAO);

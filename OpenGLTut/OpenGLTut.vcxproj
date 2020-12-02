@@ -148,6 +148,9 @@
     <ClCompile Include="src\3_Texture\TextureTask3.cpp" />
     <ClCompile Include="src\3_Texture\TextureTask4.cpp" />
     <ClCompile Include="src\4_Transformations\Transformations.cpp" />
+    <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems1.cpp" />
+    <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems2.cpp" />
+    <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
@@ -168,6 +171,8 @@
     <None Include="src\3_Texture\ShaderFiles\ShaderTask4.vs" />
     <None Include="src\4_Transformations\ShaderFiles\Shader1.frs" />
     <None Include="src\4_Transformations\ShaderFiles\Shader1.vs" />
+    <None Include="src\5_CoordinateSystems\ShaderFiles\Shader1.frs" />
+    <None Include="src\5_CoordinateSystems\ShaderFiles\Shader1.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\imgs\awesomeface.png" />
