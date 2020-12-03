@@ -168,11 +168,12 @@
 //        glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 //        glm::mat4 view = glm::mat4(1.0f);
 //        glm::mat4 projection = glm::mat4(1.0f);
-//        model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate around the x-axis -> see the top a bit further than the bottom of the mixed texture
+//        model = glm::rotate(model, (-55.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate around the x-axis -> see the top a bit further than the bottom of the mixed texture
 //        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // move the texture a bit further from the camera position 
 //        // transform from the given coordinates (after view matrix applied) to clip coordinates,
 //        // and also tranform the w component -> applie perspective division -> look more 3D
-//        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        projection = glm::perspective(45.0f, (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        //projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 //        // retrieve the matrix uniform locations
 //        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
 //        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");

@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{613E99B2-9605-40C3-873A-291A51D6C1E7}</ProjectGuid>
     <RootNamespace>OpenGLTut</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -151,6 +151,7 @@
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems1.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems2.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems3.cpp" />
+    <ClCompile Include="src\5_CoordinateSystems\CoordinateSystemsTask1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
