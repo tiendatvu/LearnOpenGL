@@ -154,6 +154,7 @@
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystemsTask1.cpp" />
     <ClCompile Include="src\6_Camera\1_CameraCircle.cpp" />
     <ClCompile Include="src\6_Camera\2_CameraKeyboard.cpp" />
+    <ClCompile Include="src\6_Camera\3_CameraMouseZoom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
