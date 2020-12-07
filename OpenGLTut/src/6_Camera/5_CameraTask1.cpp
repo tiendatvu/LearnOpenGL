@@ -171,7 +171,7 @@
 //    // load image, create texture and generate mipmaps
 //    int width, height, nrChannels;
 //    stbi_set_flip_vertically_on_load(true);
-//    
+//
 //    char imageFile[maxDir];
 //    std::strncpy(imageFile, currentDir, maxDir - 1);
 //    std::strncat(imageFile, "/Resources/imgs/container.jpg", maxDir - strlen(imageFile) - 1);
@@ -287,6 +287,19 @@
 //        glfwSetWindowShouldClose(window, true);
 //
 //    float cameraSpeed = 2.5 * deltaTime;
+//
+//    // method 1:
+//    //glm::vec3 cameraFrontXZ = glm::vec3(cameraFront.x, 0, cameraFront.z);
+//    //if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+//    //    cameraPos += cameraSpeed * cameraFrontXZ;
+//    //if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+//    //    cameraPos -= cameraSpeed * cameraFrontXZ;
+//    //if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+//    //    cameraPos -= glm::normalize(glm::cross(cameraFrontXZ, cameraUp)) * cameraSpeed;
+//    //if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+//    //    cameraPos += glm::normalize(glm::cross(cameraFrontXZ, cameraUp)) * cameraSpeed;
+//
+//    // method 2:
 //    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 //        cameraPos += cameraSpeed * cameraFront;
 //    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
@@ -295,6 +308,7 @@
 //        cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
 //    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 //        cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
+//    cameraPos.y = 0.0f;
 //}
 //
 //// glfw: whenever the window size changed (by OS or user resize) this callback function executes
@@ -341,9 +355,9 @@
 //    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 //    cameraFront = glm::normalize(front);
 //
-//    std::cout << "front.x: " << front.x << std::endl;
-//    std::cout << "front.y: " << front.y << std::endl;
-//    std::cout << "front.z: " << front.z << std::endl;
+//    //std::cout << "front.x: " << front.x << std::endl;
+//    //std::cout << "front.y: " << front.y << std::endl;
+//    //std::cout << "front.z: " << front.z << std::endl;
 //}
 //
 //// glfw: whenever the mouse scroll wheel scrolls, this callback is called

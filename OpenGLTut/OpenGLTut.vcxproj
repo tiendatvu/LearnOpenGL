@@ -155,8 +155,12 @@
     <ClCompile Include="src\6_Camera\1_CameraCircle.cpp" />
     <ClCompile Include="src\6_Camera\2_CameraKeyboard.cpp" />
     <ClCompile Include="src\6_Camera\3_CameraMouseZoom.cpp" />
+    <ClCompile Include="src\6_Camera\4_UseCameraClass.cpp" />
+    <ClCompile Include="src\6_Camera\5_CameraTask1.cpp" />
+    <ClCompile Include="src\6_Camera\6_SelfLookAtFunc.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h" />
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />

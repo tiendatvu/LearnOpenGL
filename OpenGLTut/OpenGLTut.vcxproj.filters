@@ -102,6 +102,15 @@
     <ClCompile Include="src\6_Camera\3_CameraMouseZoom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\6_Camera\4_UseCameraClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\6_Camera\5_CameraTask1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\6_Camera\6_SelfLookAtFunc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -130,6 +139,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
