@@ -1,10 +1,10 @@
 #version 330 core
 out vec4 FragColor;
 
-in vec3 Normal;  
-in vec3 FragPos;  
-  
-uniform vec3 lightPos; 
+in vec3 Normal;
+in vec3 FragPos;
+
+uniform vec3 lightPos;
 uniform vec3 lightColor;
 uniform vec3 objectColor;
 
@@ -12,15 +12,25 @@ void main()
 {
     // ambient
     float ambientStrength = 0.1;
+    // use ambient light to set the object not COMPLETELY DARK
     vec3 ambient = ambientStrength * lightColor;
-  	
-    // diffuse 
-    vec3 norm = normalize(Normal);
-    vec3 lightDir = normalize(lightPos - FragPos);
-    //float diff = max(dot(norm, lightDir), 0.0);
+
+    // diffuse
+    vec3 norm = normalize(Normal); // always need to normalize the vector -> the calculation of dot product would be the result of cos(theta), with theta is the angle between 2 considered vectors.
+
+    // lightDirection = lightPos - FragPos -> lightDirection would make an angle with normal vector at a point on the fragment 
+    // (see picture https://learnopengl.com/Lighting/Basic-Lighting : Diffuse lighting for visualization)
+    vec3 lightDir = normalize(lightPos - FragPos); 
+        
+    // dot product: dot(norm, lightDir) -> 2 normalized vectors -> the result would be the cosine value between 2 vector
+    // -> - the angle belongs to [-90;90] means: the light source is lighting that face of the cube; and the cos(theta) > 0
+    //    - the angle belongs to (90;270) means: the light source could not light that face of the cube; and the cos(theta) < 0
+    // => use the max function to set the face not lighted to BLACK color
     float diff = max(dot(norm, lightDir), 0.0);
     vec3 diffuse = diff * lightColor;
-            
+
+    // apply both kinds of lighting to the object
     vec3 result = (ambient + diffuse) * objectColor;
+    // export the color of the fragment
     FragColor = vec4(result, 1.0);
-} 
+}

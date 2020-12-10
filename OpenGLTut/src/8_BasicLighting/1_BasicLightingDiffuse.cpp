@@ -154,6 +154,8 @@ int main()
     glGenVertexArrays(1, &lightCubeVAO);
     glBindVertexArray(lightCubeVAO);
 
+    // [datvt] we don't have to assign value for the VBO again, because it already has data from the above assignment.
+    // This save memory from storing the same data. Now, we just need to retrieve through pointer.
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     // note that we update the lamp's position attribute's stride to reflect the updated buffer data
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
@@ -174,6 +176,7 @@ int main()
         glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+        // [datvt] change the position of the light source over time -> let it run on the circle around the (0, y, 0)
         float curTime = glfwGetTime();
         lightPos = glm::vec3(3 * glm::sin(curTime), lightPos.y, 3 * glm::cos(curTime));
         // be sure to activate shader when setting uniforms/drawing objects
@@ -189,10 +192,10 @@ int main()
         lightingShader.setMat4("view", view);
         
         // world transformation
-        glm::mat4 model = glm::mat4(1.0f);
-        lightingShader.setMat4("model", model);
+        glm::mat4 model = glm::mat4(1.0f); // init a Identity matrix
+        lightingShader.setMat4("model", model); // set the model matrix for the lighting cube -> the identity matrix should not transform the object
 
-        // render the cube
+        // render the lighted cube
         glBindVertexArray(cubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
@@ -202,9 +205,10 @@ int main()
         lightCubeShader.setMat4("view", view);
         model = glm::mat4(1.0f);
         model = glm::translate(model, lightPos);
-        model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
+        model = glm::scale(model, glm::vec3(0.2f)); // apply transformation to get a smaller cube -> represent a light source cube
         lightCubeShader.setMat4("model", model);
 
+        // render the light source
         glBindVertexArray(lightCubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
