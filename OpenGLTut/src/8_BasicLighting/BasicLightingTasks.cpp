@@ -83,8 +83,8 @@ int main()
     //std::string vsFile1 = "/src/8_BasicLighting/ShaderFiles/basic_lighting_task1.vs";
     //std::string frsFile1 = "/src/8_BasicLighting/ShaderFiles/basic_lighting_task1.frs";
     // Task 2:
-    std::string vsFile1 = "/src/8_BasicLighting/ShaderFiles/basic_lighting_task2.vs";
-    std::string frsFile1 = "/src/8_BasicLighting/ShaderFiles/basic_lighting_task2.frs";
+    std::string vsFile1 = "/src/8_BasicLighting/ShaderFiles/basic_lighting_task3.vs";
+    std::string frsFile1 = "/src/8_BasicLighting/ShaderFiles/basic_lighting_task3.frs";
 
     Shader lightingShader(currentDir + vsFile1, currentDir + frsFile1);
     std::string vsFile2 = "/src/8_BasicLighting/ShaderFiles/light_cube2.vs";

@@ -199,6 +199,8 @@
     <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task1.vs" />
     <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task2.frs" />
     <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task2.vs" />
+    <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task3.frs" />
+    <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task3.vs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube.frs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube.vs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube2.frs" />

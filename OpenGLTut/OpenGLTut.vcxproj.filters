@@ -158,6 +158,8 @@
     <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task1.frs" />
     <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task2.vs" />
     <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task2.frs" />
+    <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task3.frs" />
+    <None Include="src\8_BasicLighting\ShaderFiles\basic_lighting_task3.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
