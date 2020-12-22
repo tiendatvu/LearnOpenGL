@@ -162,6 +162,7 @@
     <ClCompile Include="src\8_BasicLighting\1_BasicLightingDiffuse.cpp" />
     <ClCompile Include="src\8_BasicLighting\2_BasicLightingSpecular.cpp" />
     <ClCompile Include="src\8_BasicLighting\BasicLightingTasks.cpp" />
+    <ClCompile Include="src\9_Materials\1_Materials.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h" />
@@ -205,6 +206,10 @@
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube.vs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube2.frs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube2.vs" />
+    <None Include="src\9_Materials\ShaderFiles\light_cube.frs" />
+    <None Include="src\9_Materials\ShaderFiles\light_cube.vs" />
+    <None Include="src\9_Materials\ShaderFiles\materials.frs" />
+    <None Include="src\9_Materials\ShaderFiles\materials.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\imgs\awesomeface.png" />
