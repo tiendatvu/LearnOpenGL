@@ -130,6 +130,7 @@
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader1.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp" />
+    <ClCompile Include="src\10_LightingMaps\E1_LightingMapSpecular.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask2.cpp" />
@@ -175,6 +176,11 @@
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.frs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.vs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\e1_light_cube.frs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\e1_light_cube.vs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\t1_lighting_maps.frs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader2.vs" />
