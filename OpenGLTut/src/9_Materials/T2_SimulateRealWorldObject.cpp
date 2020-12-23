@@ -1,13 +1,14 @@
+// Task 1_material: Can you simulate some of the real-world objects by defining their respective materials like we've seen at the start of this chapter
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include <glad\glad.h>
+#include <GLFW\glfw3.h>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <glm\glm.hpp>
+#include <glm\gtc\matrix_transform.hpp>
+#include <glm\gtc\type_ptr.hpp>
 
-#include <ShaderClass/Shader1.h>
-#include <CameraClass/Camera.h>
+#include <ShaderClass\Shader1.h>
+#include <CameraClass\Camera.h>
 
 #include <iostream>
 #include <windows.h>
@@ -55,7 +56,8 @@ int main()
     }
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-    glfwSetCursorPosCallback(window, scroll_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);
+    glfwSetScrollCallback(window, scroll_callback);
 
     // tell glfw to capture our mouse
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
@@ -74,11 +76,11 @@ int main()
     const unsigned int maxDir = 260;
     char currentDir[maxDir];
     GetCurrentDirectoryA(maxDir, currentDir);
-    std::string vsFile1 = "/src/9_Materials/ShaderFiles/materials.vs";
-    std::string frsFile1 = "/src/9_Materials/ShaderFiles/materials.frs";
+    std::string vsFile1 = "/src/9_Materials/ShaderFiles/e1_materials.vs";
+    std::string frsFile1 = "/src/9_Materials/ShaderFiles/e1_materials.frs";
     Shader lightingShader(currentDir + vsFile1, currentDir + frsFile1);
-    std::string vsFile2 = "/src/9_Materials/ShaderFiles/light_cube.vs";
-    std::string frsFile2 = "/src/9_Materials/ShaderFiles/light_cube.frs";
+    std::string vsFile2 = "/src/9_Materials/ShaderFiles/e1_light_cube.vs";
+    std::string frsFile2 = "/src/9_Materials/ShaderFiles/e1_light_cube.frs";
     Shader lightCubeShader(currentDir + vsFile2, currentDir + frsFile2);
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -157,18 +159,23 @@ int main()
     while (!glfwWindowShouldClose(window))
     {
         // per-frame time logic
+        // --------------------
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
         // input
+        // -----
         processInput(window);
 
         // render
+        // ------
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // be sure to active shader when setting uniforms/drawing objects
+        // be sure to activate shader when setting uniforms/drawing objects
+        //float curTime = glfwGetTime();
+        //lightPos = glm::vec3(3 * glm::sin(curTime), lightPos.y, 3 * glm::cos(curTime));
         lightingShader.use();
         lightingShader.setVec3("light.position", lightPos);
         lightingShader.setVec3("viewPos", camera.Position);
@@ -178,18 +185,23 @@ int main()
         lightColor.x = sin(glfwGetTime() * 2.0f);
         lightColor.y = sin(glfwGetTime() * 0.7f);
         lightColor.z = sin(glfwGetTime() * 1.3f);
-        glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f); // decrease the influence
+        glm::vec3 diffuseColor = lightColor   * glm::vec3(0.5f); // decrease the influence
         glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
         lightingShader.setVec3("light.ambient", ambientColor);
         lightingShader.setVec3("light.diffuse", diffuseColor);
         lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+
+        // light properties
+        //lightingShader.setVec3("light.ambient", 1.0f, 1.0f, 1.0f); // note that all light colors are set at full intensity
+        //lightingShader.setVec3("light.diffuse", 1.0f, 1.0f, 1.0f);
+        //lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
 
         // material properties
         lightingShader.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
         lightingShader.setVec3("material.diffuse", 1.0f, 0.5f, 0.31f);
         lightingShader.setVec3("material.specular", 0.5f, 0.5f, 0.5f); // specular lighting doesn't have full effect on this object's material
         lightingShader.setFloat("material.shininess", 32.0f);
-        
+
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
@@ -210,13 +222,14 @@ int main()
         lightCubeShader.setMat4("view", view);
         model = glm::mat4(1.0f);
         model = glm::translate(model, lightPos);
-        model = glm::scale(model, glm::vec3(0.2f));; //  a smaller cube
+        model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
         lightCubeShader.setMat4("model", model);
 
         glBindVertexArray(lightCubeVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+        // -------------------------------------------------------------------------------
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

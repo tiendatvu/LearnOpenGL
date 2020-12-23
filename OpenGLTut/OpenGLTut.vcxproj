@@ -127,6 +127,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\glad\src\glad.c" />
+    <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader1.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
@@ -162,12 +163,15 @@
     <ClCompile Include="src\8_BasicLighting\1_BasicLightingDiffuse.cpp" />
     <ClCompile Include="src\8_BasicLighting\2_BasicLightingSpecular.cpp" />
     <ClCompile Include="src\8_BasicLighting\BasicLightingTasks.cpp" />
-    <ClCompile Include="src\9_Materials\1_Materials.cpp" />
+    <ClCompile Include="src\9_Materials\E1_Materials.cpp" />
+    <ClCompile Include="src\9_Materials\T1_ChangeColorLightCube.cpp" />
+    <ClCompile Include="src\9_Materials\T2_SimulateRealWorldObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>
   <ItemGroup>
@@ -206,10 +210,12 @@
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube.vs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube2.frs" />
     <None Include="src\8_BasicLighting\ShaderFiles\light_cube2.vs" />
-    <None Include="src\9_Materials\ShaderFiles\light_cube.frs" />
-    <None Include="src\9_Materials\ShaderFiles\light_cube.vs" />
-    <None Include="src\9_Materials\ShaderFiles\materials.frs" />
-    <None Include="src\9_Materials\ShaderFiles\materials.vs" />
+    <None Include="src\9_Materials\ShaderFiles\e1_light_cube.frs" />
+    <None Include="src\9_Materials\ShaderFiles\e1_light_cube.vs" />
+    <None Include="src\9_Materials\ShaderFiles\e1_materials.frs" />
+    <None Include="src\9_Materials\ShaderFiles\e1_materials.vs" />
+    <None Include="src\9_Materials\ShaderFiles\t1_light_cube.frs" />
+    <None Include="src\9_Materials\ShaderFiles\t1_light_cube.vs" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\imgs\awesomeface.png" />
