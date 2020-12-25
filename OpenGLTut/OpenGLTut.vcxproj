@@ -131,6 +131,7 @@
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp" />
     <ClCompile Include="src\10_LightingMaps\E1_LightingMapSpecular.cpp" />
+    <ClCompile Include="src\10_LightingMaps\T4_EmissionMap.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask2.cpp" />
@@ -181,6 +182,8 @@
     <None Include="src\10_LightingMaps\ShaderFiles\e1_light_cube.frs" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_light_cube.vs" />
     <None Include="src\10_LightingMaps\ShaderFiles\t1_lighting_maps.frs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.frs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader2.vs" />
@@ -226,6 +229,9 @@
   <ItemGroup>
     <Image Include="Resources\imgs\awesomeface.png" />
     <Image Include="Resources\imgs\container.jpg" />
+    <Image Include="Resources\imgs\container2.png" />
+    <Image Include="Resources\imgs\container2_specular.png" />
+    <Image Include="Resources\imgs\lighting_maps_specular_color.png" />
     <Image Include="Resources\imgs\wall.jpg" />
   </ItemGroup>
   <ItemGroup>
