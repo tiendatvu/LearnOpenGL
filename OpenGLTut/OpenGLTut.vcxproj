@@ -232,6 +232,7 @@
     <Image Include="Resources\imgs\container2.png" />
     <Image Include="Resources\imgs\container2_specular.png" />
     <Image Include="Resources\imgs\lighting_maps_specular_color.png" />
+    <Image Include="Resources\imgs\matrix.jpg" />
     <Image Include="Resources\imgs\wall.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -189,8 +189,8 @@
     <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.vs" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.frs" />
     <None Include="src\10_LightingMaps\ShaderFiles\t1_lighting_maps.frs" />
-    <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.vs" />
     <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.frs" />
+    <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
@@ -226,6 +226,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\imgs\lighting_maps_specular_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\imgs\matrix.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
