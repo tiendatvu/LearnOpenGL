@@ -193,8 +193,8 @@ int main()
     // shader configuration
     // --------------------
     lightingShader.use();
-    lightingShader.setInt("material.diffuse", 0);
-    lightingShader.setInt("material.specular", 1);
+    lightingShader.setInt("material.diffuse", 1);
+    lightingShader.setInt("material.specular", 2);
 
     // render loop
     // -----------
@@ -239,10 +239,10 @@ int main()
         lightingShader.setMat4("model", model);
 
         // bind diffuse map
-        glActiveTexture(GL_TEXTURE0);
+        glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, diffuseMap);
         // bind specular map
-        glActiveTexture(GL_TEXTURE1);
+        glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_2D, specularMap);
         
         // render the cube

@@ -133,6 +133,7 @@
     <ClCompile Include="src\10_LightingMaps\E1_LightingMapSpecular.cpp" />
     <ClCompile Include="src\10_LightingMaps\T4_EmissionMap.cpp" />
     <ClCompile Include="src\11_LightCasters\E1_LightCastersDirectional.cpp" />
+    <ClCompile Include="src\11_LightCasters\E2_LightCatersPoint.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask2.cpp" />
