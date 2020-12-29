@@ -188,6 +188,8 @@
     <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.vs" />
     <None Include="src\11_LightCasters\ShaderFiles\e1_light_casters.frs" />
     <None Include="src\11_LightCasters\ShaderFiles\e1_light_casters.vs" />
+    <None Include="src\11_LightCasters\ShaderFiles\e2_light_casters.frs" />
+    <None Include="src\11_LightCasters\ShaderFiles\e2_light_casters.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader2.vs" />

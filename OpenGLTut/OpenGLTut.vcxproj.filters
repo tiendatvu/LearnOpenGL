@@ -199,6 +199,8 @@
     <None Include="src\10_LightingMaps\ShaderFiles\t4_lighting_maps.vs" />
     <None Include="src\11_LightCasters\ShaderFiles\e1_light_casters.vs" />
     <None Include="src\11_LightCasters\ShaderFiles\e1_light_casters.frs" />
+    <None Include="src\11_LightCasters\ShaderFiles\e2_light_casters.vs" />
+    <None Include="src\11_LightCasters\ShaderFiles\e2_light_casters.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
