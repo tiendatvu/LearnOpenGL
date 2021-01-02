@@ -150,6 +150,9 @@
     <ClCompile Include="src\11_LightCasters\E3_FlashLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\11_LightCasters\E4_SmoothEdgeFlashLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -206,6 +209,7 @@
     <None Include="src\11_LightCasters\ShaderFiles\e2_light_casters.frs" />
     <None Include="src\11_LightCasters\ShaderFiles\e3_light_casters.vs" />
     <None Include="src\11_LightCasters\ShaderFiles\e3_light_casters.frs" />
+    <None Include="src\11_LightCasters\ShaderFiles\e4_light_casters.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
