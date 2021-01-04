@@ -70,12 +70,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs\Assimp\include\assimp;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs\Assimp;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs\Assimp\include\assimp;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs\Assimp;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)OpenGLTut\Dependencies\glm;$(SolutionDir)OpenGLTut\Dependencies\OtherLibs;$(SolutionDir)OpenGLTut\Dependencies\glad\include;$(SolutionDir)OpenGLTut\Dependencies\GLFW\include;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)OpenGLTut\Dependencies\GLFW\lib-vc2017;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -94,6 +102,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -119,6 +128,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -175,6 +185,43 @@
     <ClCompile Include="src\9_Materials\T2_SimulateRealWorldObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\ai_assert.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\anim.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\camera.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\cexport.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\cfileio.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\cimport.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\color4.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Compiler\poppack1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Compiler\pstdint.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Compiler\pushpack1.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\config.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\DefaultLogger.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\defs.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Exporter.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Importer.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\importerdesc.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\IOStream.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\IOSystem.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\light.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\Logger.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\LogStream.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\material.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix3x3.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix4x4.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\mesh.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\metadata.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\NullLogger.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\postprocess.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\ProgressHandler.hpp" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\quaternion.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\scene.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\texture.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\types.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\vector2.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\vector3.h" />
+    <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\version.h" />
     <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h" />
@@ -182,6 +229,13 @@
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\color4.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\material.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix3x3.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\matrix4x4.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\quaternion.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector2.inl" />
+    <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector3.inl" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.frs" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.vs" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_light_cube.frs" />
