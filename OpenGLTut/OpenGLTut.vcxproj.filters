@@ -156,6 +156,9 @@
     <ClCompile Include="src\12_MultipleLights\E1_MultipleLights.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\13_Model\E1_ModelLoading.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -238,6 +241,8 @@
     <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector3.inl">
       <Filter>Header Files</Filter>
     </None>
+    <None Include="src\13_Model\ShaderFiles\e1_model_loading.vs" />
+    <None Include="src\13_Model\ShaderFiles\e1_model_loading.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
@@ -364,6 +369,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Dependencies\OtherLibs\Assimp\include\assimp\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\OtherLibs\MeshClass\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\OtherLibs\MeshClass\mesh1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Dependencies\OtherLibs\ModelClass\model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
