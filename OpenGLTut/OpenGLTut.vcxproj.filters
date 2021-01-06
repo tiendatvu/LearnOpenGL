@@ -159,6 +159,9 @@
     <ClCompile Include="src\13_Model\E1_ModelLoading.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\13_Model\test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
