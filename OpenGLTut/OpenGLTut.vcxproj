@@ -165,6 +165,7 @@
     <ClCompile Include="src\12_MultipleLights\E1_MultipleLights.cpp" />
     <ClCompile Include="src\13_Model\E1_ModelLoading.cpp" />
     <ClCompile Include="src\13_Model\test.cpp" />
+    <ClCompile Include="src\14_DepthTesting\E1_DepthTesting.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask2.cpp" />
@@ -257,6 +258,7 @@
     <None Include="Dependencies\OtherLibs\Assimp\include\assimp\quaternion.inl" />
     <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector2.inl" />
     <None Include="Dependencies\OtherLibs\Assimp\include\assimp\vector3.inl" />
+    <None Include="Resources\objects\backpack\backpack.mtl" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.frs" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_lighting_maps.vs" />
     <None Include="src\10_LightingMaps\ShaderFiles\e1_light_cube.frs" />
@@ -277,6 +279,8 @@
     <None Include="src\12_MultipleLights\ShaderFiles\e1_multiple_lights.vs" />
     <None Include="src\13_Model\ShaderFiles\e1_model_loading.frs" />
     <None Include="src\13_Model\ShaderFiles\e1_model_loading.vs" />
+    <None Include="src\14_DepthTesting\ShaderFiles\e1_depth_testing.frs" />
+    <None Include="src\14_DepthTesting\ShaderFiles\e1_depth_testing.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
     <None Include="src\2_Shaders\ShaderFiles\shader1.vs" />
     <None Include="src\2_Shaders\ShaderFiles\shader2.vs" />
@@ -327,9 +331,15 @@
     <Image Include="Resources\imgs\lighting_maps_specular_color.png" />
     <Image Include="Resources\imgs\matrix.jpg" />
     <Image Include="Resources\imgs\wall.jpg" />
+    <Image Include="Resources\objects\backpack\ao.jpg" />
+    <Image Include="Resources\objects\backpack\diffuse.jpg" />
+    <Image Include="Resources\objects\backpack\normal.png" />
+    <Image Include="Resources\objects\backpack\roughness.jpg" />
+    <Image Include="Resources\objects\backpack\specular.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Dependencies\OtherLibs\README.txt" />
+    <Text Include="Resources\objects\backpack\source_attribution.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

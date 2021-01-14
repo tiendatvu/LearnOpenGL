@@ -162,6 +162,9 @@
     <ClCompile Include="src\13_Model\test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\14_DepthTesting\E1_DepthTesting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -246,6 +249,9 @@
     </None>
     <None Include="src\13_Model\ShaderFiles\e1_model_loading.vs" />
     <None Include="src\13_Model\ShaderFiles\e1_model_loading.frs" />
+    <None Include="Resources\objects\backpack\backpack.mtl" />
+    <None Include="src\14_DepthTesting\ShaderFiles\e1_depth_testing.vs" />
+    <None Include="src\14_DepthTesting\ShaderFiles\e1_depth_testing.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
@@ -406,8 +412,24 @@
     <Image Include="Resources\imgs\matrix.jpg">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resources\objects\backpack\ao.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\objects\backpack\diffuse.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\objects\backpack\normal.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\objects\backpack\roughness.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\objects\backpack\specular.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Dependencies\OtherLibs\README.txt" />
+    <Text Include="Resources\objects\backpack\source_attribution.txt" />
   </ItemGroup>
 </Project>
