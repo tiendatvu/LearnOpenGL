@@ -165,6 +165,9 @@
     <ClCompile Include="src\14_DepthTesting\E1_DepthTesting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\15_StencilTesting\E1_StencilTesting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -252,6 +255,9 @@
     <None Include="Resources\objects\backpack\backpack.mtl" />
     <None Include="src\14_DepthTesting\ShaderFiles\e1_depth_testing.vs" />
     <None Include="src\14_DepthTesting\ShaderFiles\e1_depth_testing.frs" />
+    <None Include="src\15_StencilTesting\ShaderFiles\e1_stencil_testing.vs" />
+    <None Include="src\15_StencilTesting\ShaderFiles\e1_stencil_testing.frs" />
+    <None Include="src\15_StencilTesting\ShaderFiles\e1_stencil_single_color.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
