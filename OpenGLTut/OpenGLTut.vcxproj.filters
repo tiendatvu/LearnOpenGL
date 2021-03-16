@@ -168,6 +168,12 @@
     <ClCompile Include="src\15_StencilTesting\E1_StencilTesting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\16_Blending\E1_BlendingDiscard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\16_Blending\E2_BlendingSorted.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -258,6 +264,10 @@
     <None Include="src\15_StencilTesting\ShaderFiles\e1_stencil_testing.vs" />
     <None Include="src\15_StencilTesting\ShaderFiles\e1_stencil_testing.frs" />
     <None Include="src\15_StencilTesting\ShaderFiles\e1_stencil_single_color.frs" />
+    <None Include="src\16_Blending\ShaderFiles\e1_blending.vs" />
+    <None Include="src\16_Blending\ShaderFiles\e1_blending.frs" />
+    <None Include="src\16_Blending\ShaderFiles\e2_blending.vs" />
+    <None Include="src\16_Blending\ShaderFiles\e2_blending.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
