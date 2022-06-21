@@ -61,10 +61,15 @@
 //    float textureScale = 1.0f;
 //    float vertices[] = {
 //        // positions          // texture coords
-//         0.5f,  0.5f, 0.0f,   textureScale, textureScale, // top right
-//         0.5f, -0.5f, 0.0f,   textureScale, 0.0f, // bottom right
-//        -0.5f, -0.5f, 0.0f,   0.0f,         0.0f, // bottom left
-//        -0.5f,  0.5f, 0.0f,   0.0f,         textureScale  // top left 
+//        // 0.5f,  0.5f, 0.0f,   textureScale, textureScale, // top right
+//        // 0.5f, -0.5f, 0.0f,   textureScale, 0.0f, // bottom right
+//        //-0.5f, -0.5f, 0.0f,   0.0f,         0.0f, // bottom left
+//        //-0.5f,  0.5f, 0.0f,   0.0f,         textureScale  // top left 
+//        
+//         1.0f,  1.0f, 0.0f,   textureScale, textureScale, // top right
+//         1.0f,  0.0f, 0.0f,   textureScale, 0.0f, // bottom right
+//         0.0f,  0.0f, 0.0f,   0.0f,         0.0f, // bottom left
+//         0.0f,  1.0f, 0.0f,   0.0f,         textureScale  // top left 
 //    };
 //    unsigned int indices[] = {
 //        0, 1, 3, // first triangle
@@ -173,13 +178,13 @@
 //        glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
 //
 //        // Task 1:
-//        //transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-//        //transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-//        //transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 1.0f));
+//        //transform = glm::translate(transform, glm::vec3(-0.5f, -0.5f, 0.0f));
+//        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+//        transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 1.0f));
 //
 //        // Task 2:
-//        float a = sin(glfwGetTime());
-//        transform = glm::scale(transform, glm::vec3(a, a, 0.0f));
+//        //float a = sin(glfwGetTime());
+//        //transform = glm::scale(transform, glm::vec3(a, a, 0.0f));
 //
 //        // get matrix's uniform location and set matrix
 //        ourShader.use();
@@ -193,11 +198,11 @@
 //        // Task 2':
 //        // second transformation
 //        // ---------------------
-//        transform = glm::mat4(1.0f); // reset it to identity matrix
-//        transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
-//        float scaleAmount = sin(glfwGetTime());
-//        transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
-//        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]); // this time take the matrix value array's first element as its memory pointer value
+//        //transform = glm::mat4(1.0f); // reset it to identity matrix
+//        //transform = glm::translate(transform, glm::vec3(-0.5f, 0.5f, 0.0f));
+//        //float scaleAmount = sin(glfwGetTime());
+//        //transform = glm::scale(transform, glm::vec3(scaleAmount, scaleAmount, scaleAmount));
+//        //glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]); // this time take the matrix value array's first element as its memory pointer value
 //
 //        // now with the uniform matrix being replaced with new transformations, draw it again.
 //        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

@@ -174,6 +174,9 @@
     <ClCompile Include="src\16_Blending\E2_BlendingSorted.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\24_Instance\E3_AsteroidInstanced.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />

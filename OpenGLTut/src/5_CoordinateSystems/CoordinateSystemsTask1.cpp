@@ -59,6 +59,15 @@
 //
 //    // set up vertex data and buffers and configure vertex attributes
 //    float vertices[] = {
+//        // pos            // tex
+//        //0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+//        //1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+//        //0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+//        //              
+//        //0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+//        //1.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+//        //1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+//
 //        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 //        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
 //        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
@@ -66,40 +75,40 @@
 //        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
 //        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 //
-//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-//        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-//        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-//        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//        //-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//        //0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+//        //0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+//        //0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+//        //-0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+//        //-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
 //
-//        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//        //-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//        //-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//        //-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//        //-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//        //-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//        //-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 //
-//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-//        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//        //0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//        //0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//        //0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//        //0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//        //0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//        //0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
 //
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-//        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-//        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-//        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//        //-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+//        //0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+//        //0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+//        //0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+//        //-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+//        //-0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
 //
-//        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-//        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-//        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-//        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+//        //-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+//        //0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+//        //0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//        //0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+//        //-0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+//        //-0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 //    };
 //
 //    glm::vec3 cubePositions[] = {
@@ -222,8 +231,9 @@
 //        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -7.0f)); // move the texture a bit further from the camera position 
 //        // transform from the given coordinates (after view matrix applied) to clip coordinates,
 //        // and also tranform the w component -> applie perspective division -> look more 3D
-//        //projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-//        projection = glm::perspective(45.0f, (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        //projection = glm::perspective(45.0f, (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+//        //projection = glm::ortho(0.0f, static_cast<float>(SCR_WIDTH), static_cast<float>(SCR_HEIGHT), 0.0f, -1.0f, 1.0f);
 //
 //        // retrieve the matrix uniform locations
 //        unsigned int viewLoc = glGetUniformLocation(ourShader.ID, "view");
@@ -235,28 +245,28 @@
 //        // render container
 //        glBindVertexArray(VAO);
 //        int sizeCubePositions = (sizeof(cubePositions) / sizeof(*cubePositions));
-//        for (unsigned int i = 0; i < sizeCubePositions; i++)
+//        for (unsigned int i = 0; i < 1; i++)
 //        {
 //            glm::mat4 model = glm::mat4(1.0f);
 //            model = glm::translate(model, cubePositions[i]);
 //            float angle = 20.0f * i;
 //            //model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
 //
-//            if (i % 3 == 0)
+//            /*if (i % 3 == 0)
 //            {
 //                model = glm::rotate(model, glm::radians(60.0f) * (i + 1) * ((float)glfwGetTime()), glm::vec3(1.0f* glm::sin((float)glfwGetTime()), 0.3f, 0.5f));
 //            }
 //            else
 //            {
 //                model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-//            }            
+//            }   */         
 //            ourShader.setMat4("model", model);
 //
 //            // do vẽ 1 cube với 6 mặt vuông -> 1 mặt vuông gồm 2 tam giác -> mỗi tam giác cấu thành từ 3 đỉnh.
 //            // vì dùng hàm glDrawArrays -> vẽ tam giác từ các đỉnh riêng biệt, có thể trùng
 //            // => 6 mặt * 2 tam giác * 3 đỉnh = 36 đỉnh / 1 hình hộp.
 //            // => Vẽ hình hộp tại "sizeCubePositions" các vị trí khác nhau trong world space
-//            glDrawArrays(GL_TRIANGLES, 0, 36); 
+//            glDrawArrays(GL_TRIANGLES, 0, 6); 
 //        }
 //
 //        // glfw: swap buffers and poll IO events

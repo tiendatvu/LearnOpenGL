@@ -39,7 +39,7 @@
 //#endif
 //
 //    // glfw window creation
-//    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "camera keyboard", NULL, NULL);
+//    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "2_camera keyboard", NULL, NULL);
 //    if (window == NULL)
 //    {
 //        std::cout << "Failed to create GLFW window" << std::endl;

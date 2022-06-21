@@ -2,7 +2,7 @@
 //#include <GLFW/glfw3.h>
 //#include "stb_image.h"
 //
-//#include <ShaderClass/Shader.h>
+//#include <ShaderClass/Shader1.h>
 //
 //#include <iostream>
 //#include <windows.h>
@@ -52,10 +52,15 @@
 //    // ------------------------------------------------------------------
 //    float vertices[] = {
 //        // positions          // colors           // texture coords
-//        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
-//        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
-//        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
-//        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+//        //0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f, // top right
+//        //0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f, // bottom right
+//        //-0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // bottom left
+//        //-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // top left 
+//
+//        0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   0.5f, 1.0f, // right top
+//        0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   0.5f, 0.0f, // right bottom 
+//        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f, // left bottom
+//        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f  // left top
 //    };
 //
 //    unsigned int indices[] = {
