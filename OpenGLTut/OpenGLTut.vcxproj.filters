@@ -177,6 +177,15 @@
     <ClCompile Include="src\24_Instance\E3_AsteroidInstanced.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\1_HelloTriangle\1_HelloTriangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\2_Shaders\1_ShaderUniform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\2_Shaders\2_ShadersInterpolation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />

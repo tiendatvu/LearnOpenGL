@@ -169,12 +169,15 @@
     <ClCompile Include="src\15_StencilTesting\E1_StencilTesting.cpp" />
     <ClCompile Include="src\16_Blending\E1_BlendingDiscard.cpp" />
     <ClCompile Include="src\16_Blending\E2_BlendingSorted.cpp" />
+    <ClCompile Include="src\1_HelloTriangle\1_HelloTriangle.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleSrc.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask1.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask2.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask3.cpp" />
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask4.cpp" />
     <ClCompile Include="src\24_Instance\E3_AsteroidInstanced.cpp" />
+    <ClCompile Include="src\2_Shaders\1_ShaderUniform.cpp" />
+    <ClCompile Include="src\2_Shaders\2_ShadersInterpolation.cpp" />
     <ClCompile Include="src\2_Shaders\shaderClass\Shader.cpp" />
     <ClCompile Include="src\2_Shaders\ShadersClass.cpp" />
     <ClCompile Include="src\2_Shaders\ShadersInterpolation.cpp" />
