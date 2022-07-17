@@ -92,7 +92,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SOLUTION_DIR=R"($(SolutionDir))";_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)OpenGLTut\Dependencies\OtherLibs\Assimp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -153,9 +153,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\glad\src\glad.c" />
-    <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader1.cpp" />
-    <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp" />
+    <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
     <ClCompile Include="src\10_LightingMaps\E1_LightingMapSpecular.cpp" />
     <ClCompile Include="src\10_LightingMaps\T4_EmissionMap.cpp" />
     <ClCompile Include="src\11_LightCasters\E1_LightCastersDirectional.cpp" />
@@ -191,6 +190,7 @@
     <ClCompile Include="src\3_Texture\TextureTask2.cpp" />
     <ClCompile Include="src\3_Texture\TextureTask3.cpp" />
     <ClCompile Include="src\3_Texture\TextureTask4.cpp" />
+    <ClCompile Include="src\4_Transformations\1_TranslationTransformation.cpp" />
     <ClCompile Include="src\4_Transformations\Transformations.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems1.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems2.cpp" />
@@ -253,7 +253,6 @@
     <ClInclude Include="Dependencies\OtherLibs\MeshClass\mesh1.h" />
     <ClInclude Include="Dependencies\OtherLibs\ModelClass\model.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
-    <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader1.h" />
     <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
     <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>

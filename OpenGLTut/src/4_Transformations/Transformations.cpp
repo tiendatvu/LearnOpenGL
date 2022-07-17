@@ -6,7 +6,7 @@
 //#include <glm/gtc/matrix_transform.hpp>
 //#include <glm/gtc/type_ptr.hpp>
 //
-//#include <ShaderClass/Shader1.h>
+//#include <ShaderClass/Shader.h>
 //
 //#include <iostream>
 //#include <windows.h>
@@ -20,6 +20,12 @@
 //
 //int main()
 //{
+//    glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
+//    glm::mat4 trans = glm::mat4(1.0f);
+//    glm::mat4 trans1 = glm::translate(trans, glm::vec3(2.5f, 6.70f, 0.0f));
+//    vec = trans1 * vec;
+//
+//
 //    // glfw: init and configure
 //    glfwInit();
 //    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -176,7 +182,7 @@
 //
 //        // create transformations
 //        glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-//
+//        
 //        // Task 1:
 //        //transform = glm::translate(transform, glm::vec3(-0.5f, -0.5f, 0.0f));
 //        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
