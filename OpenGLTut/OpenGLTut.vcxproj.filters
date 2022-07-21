@@ -183,6 +183,9 @@
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\1_HelloTriangle\2_IndexedDraws.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -277,6 +280,8 @@
     <None Include="src\16_Blending\ShaderFiles\e1_blending.frs" />
     <None Include="src\16_Blending\ShaderFiles\e2_blending.vs" />
     <None Include="src\16_Blending\ShaderFiles\e2_blending.frs" />
+    <None Include="src\1_HelloTriangle\ShaderFiles\Shader1.vs" />
+    <None Include="src\1_HelloTriangle\ShaderFiles\Shader1.frs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h">
