@@ -177,7 +177,6 @@
     <ClCompile Include="src\24_Instance\E3_AsteroidInstanced.cpp" />
     <ClCompile Include="src\2_Shaders\1_ShaderUniform.cpp" />
     <ClCompile Include="src\2_Shaders\2_ShadersInterpolation.cpp" />
-    <ClCompile Include="src\2_Shaders\shaderClass\Shader.cpp" />
     <ClCompile Include="src\2_Shaders\ShadersClass.cpp" />
     <ClCompile Include="src\2_Shaders\ShadersInterpolation.cpp" />
     <ClCompile Include="src\2_Shaders\ShadersUniform.cpp" />
@@ -254,7 +253,6 @@
     <ClInclude Include="Dependencies\OtherLibs\ModelClass\model.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
     <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
-    <ClInclude Include="src\2_Shaders\shaderClass\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\OtherLibs\Assimp\include\assimp\color4.inl" />

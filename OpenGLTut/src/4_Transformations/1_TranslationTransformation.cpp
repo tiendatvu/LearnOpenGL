@@ -78,6 +78,9 @@ int main()
     ourShader.setInt("texture1", 0);
     ourShader.setInt("texture2", 1);
 
+    static float scale = 0.0f;
+    static float delta = 0.005f;
+
     // reder loop
     while (!glfwWindowShouldClose(window))
     {
@@ -96,13 +99,19 @@ int main()
 
         // Create transformation
         glm::mat4 transform = glm::mat4(1.0f);; // init with identity matrix
-        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f)); // rotate on Z axis with angle changed by time
+        scale += delta;
+        if ((scale >= 1.0f) || (scale <= -1.0f)) {
+            delta *= -1.0f;
+        }
+        transform = glm::translate(transform, glm::vec3(glm::cos((float)glfwGetTime() * 0.5f), glm::sin((float)glfwGetTime() * 0.5f), 0.0f));
+        //transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        //transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f)); // rotate on Z axis with angle changed by time
 
         // get matrix's uniform location and set matrix
         ourShader.use();
         unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+        //glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]);
 
         // render container
         glBindVertexArray(VAO);

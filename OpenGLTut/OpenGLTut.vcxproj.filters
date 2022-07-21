@@ -30,9 +30,6 @@
     <ClCompile Include="src\1_HelloTriangle\HelloTriangleTask4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\2_Shaders\shaderClass\Shader.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\2_Shaders\ShadersClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -282,9 +279,6 @@
     <None Include="src\16_Blending\ShaderFiles\e2_blending.frs" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\2_Shaders\shaderClass\Shader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Dependencies\OtherLibs\CameraClass\Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
