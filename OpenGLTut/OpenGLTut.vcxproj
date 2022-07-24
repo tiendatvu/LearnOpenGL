@@ -191,6 +191,7 @@
     <ClCompile Include="src\3_Texture\TextureTask3.cpp" />
     <ClCompile Include="src\3_Texture\TextureTask4.cpp" />
     <ClCompile Include="src\4_Transformations\1_TranslationTransformation.cpp" />
+    <ClCompile Include="src\4_Transformations\2_PerspectiveProjection1.cpp" />
     <ClCompile Include="src\4_Transformations\Transformations.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems1.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems2.cpp" />

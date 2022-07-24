@@ -186,6 +186,9 @@
     <ClCompile Include="src\1_HelloTriangle\2_IndexedDraws.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\4_Transformations\2_PerspectiveProjection1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
