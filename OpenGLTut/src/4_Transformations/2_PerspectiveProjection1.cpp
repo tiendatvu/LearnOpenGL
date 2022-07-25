@@ -21,7 +21,7 @@ static std::string solDir = _SOLUTION_DIR;
 
 static float translateX = +0.0f;
 static float translateY = +0.0f;
-static float translateZ = -10.0f;
+static float translateZ = +10.0f;
 
 void InitConfigure();
 GLFWwindow *InitGLFWwindow();
@@ -121,28 +121,46 @@ int main() {
         float far = 1000.0f;
         float near = 1.0f;
         float bottom = near * tanHalfFOV;
-        float right = near * ((float)SCR_WIDTH / (float)SCR_HEIGHT) * tanHalfFOV;
-        /*float project[16] = {
-            f,  0.0f, 0.0f, 0.0f,
-            0.0f, f, 0.0f, 0.0f,
-            0.0f, 0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 1.0f, 0.0f
-        };*/
+        float aspectRatio = (float)SCR_WIDTH / (float)SCR_HEIGHT;
+        float right = near * aspectRatio * tanHalfFOV;
 
-        float project[16] = {
+        // Như ta có thể thấy:
+        // - (hàng 4, cột 3) ta tạm gọi là dirZ
+        //   dirZ là giá trị định nghĩa chiều trục Z mà camera nhìn theo.
+        //   Do: W = dirZ * Z
+        //       sau đó, normalize W cho cả vector position -> có được giá trị position thực tế sau khi transform
+        // Giả sửa Point of view (POV) là tại điểm O (0, 0, 0)
+        // - Nếu dirZ = -1: từ POV, nhìn theo trục -Z
+        //                  ta cần translate object theo chiều (-) của trục Z
+        //                  -> translateZ < 0 để camera có thể nhìn thấy object
+        // - Nếu dirZ = +1: POV, nhìn theo trục +Z
+        //                  ta cần translate object theo chiều (+) của trục Z
+        //                  -> translateZ > 0 để camera có thể nhìn thấy object
+
+        float project2[16] = {
+            f / aspectRatio,  0.0f, 0.0f, 0.0f,
+            0.0f, f, 0.0f, 0.0f,
+            0.0f, 0.0f, (-far - near) / (-far + near), 2 * far * near / (-far + near),
+            0.0f, 0.0f, +1.0f, 0.0f
+        };
+
+        float project3[16] = {
             near / right,  0.0f, 0.0f, 0.0f,
             0.0f, near / bottom, 0.0f, 0.0f,
             0.0f, 0.0f, -far / (far - near), 2 * (far * near) / (near - far),
             0.0f, 0.0f, -1.0f, 0.0f
         };
-        glm::mat4 projectionMatrix = glm::transpose(glm::make_mat4(project));
+
+
+        glm::mat4 projectionMatrix2 = glm::transpose(glm::make_mat4(project2));
+        glm::mat4 projectionMatrix3 = glm::transpose(glm::make_mat4(project3));
         
 
-        if (false)
+        if (true)
         {
             // Tự định nghĩa matrix
             // combine into stransformation matrix
-            transform = projectionMatrix * translationMatrix * rotationMatrix;
+            transform = projectionMatrix2 * translationMatrix * rotationMatrix;
 
             ourShader.use();
             unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
