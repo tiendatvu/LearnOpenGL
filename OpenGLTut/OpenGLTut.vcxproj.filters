@@ -189,6 +189,9 @@
     <ClCompile Include="src\4_Transformations\2_PerspectiveProjection1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\5_CoordinateSystems\1_CameraSpaceOrViewSpace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
