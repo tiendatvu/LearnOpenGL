@@ -6,7 +6,7 @@
 //#include <glm/gtc/matrix_transform.hpp>
 //#include <glm/gtc/type_ptr.hpp>
 //
-//#include <ShaderClass/Shader1.h>
+//#include <ShaderClass/Shader.h>
 //
 //#include <iostream>
 //#include <windows.h>
@@ -341,9 +341,9 @@
 //    front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 //    cameraFront = glm::normalize(front);
 //
-//    std::cout << "front.x: " << front.x << std::endl;
-//    std::cout << "front.y: " << front.y << std::endl;
-//    std::cout << "front.z: " << front.z << std::endl;
+//    //std::cout << "front.x: " << front.x << std::endl;
+//    //std::cout << "front.y: " << front.y << std::endl;
+//    //std::cout << "front.z: " << front.z << std::endl;
 //}
 //
 //// glfw: whenever the mouse scroll wheel scrolls, this callback is called
@@ -353,6 +353,8 @@
 //    fov -= (float)yoffset;
 //    if (fov < 1.0f)
 //        fov = 1.0f;
-//    if (fov > 45.0f)
-//        fov = 45.0f;
+//    if (fov > 90.0f)
+//        fov = 90.0f;
+//
+//    std::cout << "fov: " << fov << std::endl;
 //}

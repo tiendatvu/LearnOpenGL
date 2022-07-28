@@ -6,7 +6,7 @@
 //#include <glm/gtc/matrix_transform.hpp>
 //#include <glm/gtc/type_ptr.hpp>
 //
-//#include <ShaderClass/Shader1.h>
+//#include <ShaderClass/Shader.h>
 //#include <CameraClass/Camera.h>
 //
 //#include <iostream>
