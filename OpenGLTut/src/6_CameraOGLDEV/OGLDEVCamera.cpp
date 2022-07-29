@@ -64,6 +64,7 @@ glm::mat4 OGLDEVCamera::GetMatrix() {
     return cameraTransformation;
 }
 
+/// With the Target vector and Up vector -> we can init ROTATION transformation of the camera
 glm::mat4 OGLDEVCamera::InitCameraTransform(const glm::vec3 &target, const glm::vec3 &up) {
     glm::vec3 N = glm::normalize(target);
     glm::vec3 upNorm = glm::normalize(up);
@@ -72,13 +73,24 @@ glm::mat4 OGLDEVCamera::InitCameraTransform(const glm::vec3 &target, const glm::
     // from N vector and U vector -> get the V vector
     glm::vec3 V = glm::normalize(glm::cross(N, U));
 
-    glm::mat4 cameraTransform = glm::mat4(1.0f);
-    cameraTransform[0][0] = 
-
+    // camera transformation matrix
+    glm::mat4 m = glm::mat4(1.0f);
+    m[0][0] = U.x;   m[1][0] = U.y;   m[2][0] = U.z;   m[3][0] = 0.0f;
+    m[0][1] = V.x;   m[1][1] = V.y;   m[2][1] = V.z;   m[3][1] = 0.0f;
+    m[0][2] = N.x;   m[1][2] = N.y;   m[2][2] = N.z;   m[3][2] = 0.0f;
+    m[0][3] = 0.0f;  m[1][3] = 0.0f;  m[2][3] = 0.0f;  m[3][3] = 1.0f;
+    return m;
 }
 
 glm::mat4 OGLDEVCamera::InitCameraTransform(const glm::vec3 &pos, const glm::vec3 &target, const glm::vec3 &up) {    
-    glm::mat4 cameraTranslation = glm::translate(glm::mat4(1.0f), pos);
-
-
+    glm::mat4 cameraTranslation = glm::translate(glm::mat4(1.0f), -pos);
+    glm::mat4 cameraRotation = InitCameraTransform(target, up);
+    // apply the translation of the camera first
+    // We have the transformation of from world space to camera space
+    // m[0][0] = U.x;   m[1][0] = U.y;   m[2][0] = U.z;   m[3][0] = -pos.x;
+    // m[0][1] = V.x;   m[1][1] = V.y;   m[2][1] = V.z;   m[3][1] = -pos.y;
+    // m[0][2] = N.x;   m[1][2] = N.y;   m[2][2] = N.z;   m[3][2] = -pos.z;
+    // m[0][3] = 0.0f;  m[1][3] = 0.0f;  m[2][3] = 0.0f;  m[3][3] = 1.0f;
+    glm::mat4 m = cameraRotation * cameraTranslation;
+    return m;
 }

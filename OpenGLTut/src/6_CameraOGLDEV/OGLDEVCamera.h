@@ -21,7 +21,6 @@ private:
 
     glm::mat4 InitCameraTransform(const glm::vec3 &target, const glm::vec3 &up);
     glm::mat4 InitCameraTransform(const glm::vec3 &pos, const glm::vec3 &target, const glm::vec3 &up);
-
 };
 
 #endif
