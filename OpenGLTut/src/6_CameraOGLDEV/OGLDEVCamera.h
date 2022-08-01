@@ -2,6 +2,7 @@
 #define OGLDEV_CAMERA_H
 
 #include <glm\glm.hpp>
+#include <GLFW\glfw3.h>
 
 class OGLDEVCamera {
 public:
@@ -9,7 +10,8 @@ public:
 
     void SetPosition(float x, float y, float z);
 
-    void OnKeyboard(unsigned char key);
+    void OnKeyboard(GLFWwindow* window, int key, int scancode, int action, int mods);
+    //void OnKeyboard(unsigned char key);
 
     glm::mat4 GetMatrix();
 

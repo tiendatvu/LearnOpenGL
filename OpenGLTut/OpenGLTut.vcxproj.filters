@@ -198,6 +198,9 @@
     <ClCompile Include="src\6_CameraOGLDEV\OGLDEVCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\6_CameraOGLDEV\OGLDEVWorldTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\2_Shaders\ShaderFiles\shader1.frs" />
@@ -426,6 +429,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\6_CameraOGLDEV\OGLDEVCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\6_CameraOGLDEV\OGLDEVWorldTransform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

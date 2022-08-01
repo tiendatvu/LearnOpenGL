@@ -122,7 +122,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SOLUTION_DIR=R"($(SolutionDir))";_CRT_SECURE_NO_WARNINGS;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(SolutionDir)OpenGLTut\Dependencies\OtherLibs\Assimp</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -200,6 +200,7 @@
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystemsTask1.cpp" />
     <ClCompile Include="src\6_CameraOGLDEV\1_MovingTheCamera.cpp" />
     <ClCompile Include="src\6_CameraOGLDEV\OGLDEVCamera.cpp" />
+    <ClCompile Include="src\6_CameraOGLDEV\OGLDEVWorldTransform.cpp" />
     <ClCompile Include="src\6_Camera\1_CameraCircle.cpp" />
     <ClCompile Include="src\6_Camera\2_CameraKeyboard.cpp" />
     <ClCompile Include="src\6_Camera\3_CameraMouseZoom.cpp" />
@@ -259,6 +260,7 @@
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
     <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
     <ClInclude Include="src\6_CameraOGLDEV\OGLDEVCamera.h" />
+    <ClInclude Include="src\6_CameraOGLDEV\OGLDEVWorldTransform.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Dependencies\OtherLibs\Assimp\include\assimp\color4.inl" />
