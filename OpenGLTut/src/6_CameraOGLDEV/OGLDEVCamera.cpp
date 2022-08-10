@@ -1,7 +1,6 @@
-#include "OGLDEVCamera.h"
-#include <GLFW\glfw3.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
+#include "OGLDEVCamera.h"
 
 OGLDEVCamera::OGLDEVCamera() {
     m_pos = glm::vec3(0.0f, 0.0f, 0.0f);
@@ -16,46 +15,51 @@ void OGLDEVCamera::SetPosition(float x, float y, float z) {
     m_pos.z = z;
 }
 
-void OGLDEVCamera::OnKeyboard(unsigned char key) {
-    switch (key)
+void OGLDEVCamera::OnKeyboard(GLFWwindow* window, int key, int scancode, int action, int mods) {
+//void OGLDEVCamera::OnKeyboard(unsigned char key) {
+
+    if (action == GLFW_PRESS)
     {
-    case GLFW_KEY_UP:
-        m_pos += (m_target * m_speed);
-        break;
-    case GLFW_KEY_DOWN:
-        m_pos -= (m_target * m_speed);
-        break;
+        switch (key)
+        {
+        case GLFW_KEY_UP:
+            m_pos += (m_target * m_speed);
+            break;
+        case GLFW_KEY_DOWN:
+            m_pos -= (m_target * m_speed);
+            break;
 
-    case GLFW_KEY_LEFT:
-        glm::vec3 left = glm::cross(m_target, m_up);
-        left = glm::normalize(left);
-        left *= m_speed;
-        m_pos += left;
-        break;
-    case GLFW_KEY_RIGHT:
-        glm::vec3 right = glm::cross(m_up, m_target);
-        right = glm::normalize(right);
-        right *= m_speed;
-        m_pos += right;
-        break;
+        case GLFW_KEY_LEFT:
+            glm::vec3 left = glm::cross(m_target, m_up);
+            left = glm::normalize(left);
+            left *= m_speed;
+            m_pos += left;
+            break;
+        case GLFW_KEY_RIGHT:
+            glm::vec3 right = glm::cross(m_up, m_target);
+            right = glm::normalize(right);
+            right *= m_speed;
+            m_pos += right;
+            break;
 
-    case GLFW_KEY_PAGE_UP:
-        m_pos.y += m_speed;
-        break;
-    case GLFW_KEY_PAGE_DOWN:
-        m_pos.y -= m_speed;
-        break;
+        case GLFW_KEY_PAGE_UP:
+            m_pos.y += m_speed;
+            break;
+        case GLFW_KEY_PAGE_DOWN:
+            m_pos.y -= m_speed;
+            break;
 
-    case '+':
-        m_speed += 0.01f;
-        printf("Speed changed to %f\n", m_speed);
-        break;
-    case '-':
-        m_speed -= 0.01f;
-        printf("Speed changed to %f\n", m_speed);
-        break;
-    default:
-        break;
+        case GLFW_KEY_EQUAL: //  = (shift = is +)
+            m_speed += 0.01f;
+            printf("Speed changed to %f\n", m_speed);
+            break;
+        case GLFW_KEY_MINUS:
+            m_speed -= 0.01f;
+            printf("Speed changed to %f\n", m_speed);
+            break;
+        default:
+            break;
+        }
     }
 }
 
