@@ -98,5 +98,5 @@ glm::mat4 OGLDEVWorldTransform::InitTranslationTransform(float x, float y, float
 }
 
 glm::mat4 OGLDEVWorldTransform::InitTranslationTransform(const glm::vec3& pos) {
-    InitTranslationTransform(pos.x, pos.y, pos.z);
+    return InitTranslationTransform(pos.x, pos.y, pos.z);
 }
