@@ -1,14 +1,14 @@
-#include <glad\glad.h>
-#include <GLFW\glfw3.h>
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <stb_image.h>
 
-#include <glm\glm.hpp>
-#include <glm\gtc\matrix_transform.hpp>
-#include <glm\gtc\type_ptr.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "OGLDEVCamera.h"
 #include "OGLDEVWorldTransform.h"
-#include <ShaderClass\Shader.h>
+#include <ShaderClass/Shader.h>
 
 #include <iostream>
 #include <ctime>
@@ -17,11 +17,9 @@
 #define SCR_HEIGHT 1080
 
 const static std::string solDir = _SOLUTION_DIR;
-OGLDEVWorldTransform CubeWorldTransform;
-OGLDEVCamera GameCamera;
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
-void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+void key_callback(GLFWwindow *window, int key, int scancode, int action, int mods);
 void ProcessInput(GLFWwindow *window);
 void InitConfigure();
 GLFWwindow *InitGLFWwindow();
@@ -47,10 +45,10 @@ struct PersProjInfo
         float tanHalfFOV = tanf(glm::radians(p.fov / 2.0f));
 
         glm::mat4 m = glm::mat4();
-        m[0][0] = 1 / tanHalfFOV; m[1][0] = 0.0f;                   m[2][0] = 0.0f;                         m[3][0] = 0.0;
-        m[0][1] = 0.0f;           m[1][1] = 1.0f / (tanHalfFOV * ar); m[2][1] = 0.0f;                         m[3][1] = 0.0;
-        m[0][2] = 0.0f;           m[1][2] = 0.0f;                   m[2][2] = (-p.zNear - p.zFar) / zRange; m[3][2] = 2.0f * p.zFar * p.zNear / zRange;
-        m[0][3] = 0.0f;           m[1][3] = 0.0f;                   m[2][3] = 1.0f;                         m[3][3] = 0.0;
+        m[0][0] = 1 / tanHalfFOV; m[1][0] = 0.0f;                     m[2][0] = 0.0f;                         m[3][0] = 0.0f;
+        m[0][1] = 0.0f;           m[1][1] = 1.0f / (tanHalfFOV * ar); m[2][1] = 0.0f;                         m[3][1] = 0.0f;
+        m[0][2] = 0.0f;           m[1][2] = 0.0f;                     m[2][2] = (-p.zNear - p.zFar) / zRange; m[3][2] = 2.0f * p.zFar * p.zNear / zRange;
+        m[0][3] = 0.0f;           m[1][3] = 0.0f;                     m[2][3] = 1.0f;                         m[3][3] = 0.0f;
 
 #ifdef USE_GLM
         glm::mat4 Projection = glm::perspectiveFovLH(glm::radians(p.FOV), p.Width, p.Height, p.zNear, p.zFar);
@@ -66,6 +64,7 @@ struct PersProjInfo
         return m;
     }
 };
+
 PersProjInfo persProjInfo = { FOV, SCR_WIDTH, SCR_HEIGHT, zNear, zFar };
 
 OGLDEVWorldTransform cubeWorldTransform;
@@ -126,6 +125,7 @@ int main() {
     glEnable(GL_DEPTH_TEST);
 
     float yRotationAngle = 0.1f;
+    yRotationAngle = 0.0f;
     cubeWorldTransform.SetPosition(0.0f, 0.0f, 5.0f);
 
     while (!glfwWindowShouldClose(window))
@@ -138,12 +138,15 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Get the transformations of (world space/ view space/ projection)
-        cubeWorldTransform.Rotate(0.0f, yRotationAngle, 0.0f);
+        cubeWorldTransform.Rotate(0.0f, yRotationAngle, 0.0f); // keep rotating the cube around y axis with the pace yRotationAngle
         glm::mat4 world = cubeWorldTransform.GetMatrix();
         glm::mat4 view = gameCamera.GetMatrix();
         glm::mat4 projection = persProjInfo.InitPersProjTransform(persProjInfo);
 
         glm::mat4 transform = projection * view * world;
+        // ourShader.ID: id of the program
+        // "transform": name of the uniform
+        // glGetUniformLocation would return the location of the uniform (in the program)
         unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
         glUniformMatrix4fv(transformLoc, 1, GL_FALSE, &transform[0][0]);
 
@@ -267,38 +270,6 @@ void ProcessInput(GLFWwindow *window) {
     }
 
     glfwSetKeyCallback(window, key_callback);
-
-    //gameCamera.OnKeyboard()
-
-    /*float scale = 0.01f;
-    float oldZ = translateZ;
-    float oldX = translateX;
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-    {
-        translateZ += scale;
-    }
-    else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-    {
-        translateZ -= scale;
-    }
-
-    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-    {
-        translateX += scale;
-    }
-    else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-    {
-        translateX -= scale;
-    }
-
-    if (oldZ != translateZ)
-    {
-        std::cout << "translateZ: " << translateZ << std::endl;
-    }
-    if (oldX != translateX)
-    {
-        std::cout << "translateX: " << translateX << std::endl;
-    }*/
 }
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)

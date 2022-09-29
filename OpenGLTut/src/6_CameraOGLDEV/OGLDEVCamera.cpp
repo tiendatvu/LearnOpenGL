@@ -24,9 +24,16 @@ void OGLDEVCamera::OnKeyboard(GLFWwindow* window, int key, int scancode, int act
         {
         case GLFW_KEY_UP:
             m_pos += (m_target * m_speed);
+            std::cout << "m_pos.x: " << m_pos.x << std::endl;
+            std::cout << "m_pos.y: " << m_pos.y << std::endl;
+            std::cout << "m_pos.z: " << m_pos.z << std::endl;
             break;
+
         case GLFW_KEY_DOWN:
             m_pos -= (m_target * m_speed);
+            std::cout << "m_pos.x: " << m_pos.x << std::endl;
+            std::cout << "m_pos.y: " << m_pos.y << std::endl;
+            std::cout << "m_pos.z: " << m_pos.z << std::endl;
             break;
 
         case GLFW_KEY_LEFT:
