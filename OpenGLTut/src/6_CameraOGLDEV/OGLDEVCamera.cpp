@@ -1,11 +1,77 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include "OGLDEVCamera.h"
+#include <OGLDEV/ogldev_math_3d.h>
+
+
+static int MARGIN = 10;
+static float EDGE_STEP = 1.0f;
 
 OGLDEVCamera::OGLDEVCamera() {
     m_pos = glm::vec3(0.0f, 0.0f, 0.0f);
     m_target = glm::vec3(0.0f, 0.0f, 1.0f); // watch things along the +Z axis
     m_up = glm::vec3(0.0f, 1.0f, 0.0f);
+}
+
+OGLDEVCamera::OGLDEVCamera(int windowWidth, int windowHeight) {
+    m_windowWidth = windowWidth;
+    m_windowHeight = windowHeight;
+    m_pos = glm::vec3(0.0f, 0.0f, 0.0f);
+    m_target = glm::vec3(0.0f, 0.0f, 1.0f);
+    m_up = glm::vec3(0.0f, 1.0f, 0.0f);
+
+    Init();
+}
+
+OGLDEVCamera::OGLDEVCamera(int windowWidth, int windowHeight, const glm::vec3& pos, const glm::vec3& target, const glm::vec3& up) {
+    m_windowWidth = windowWidth;
+    m_windowHeight = windowHeight;
+    m_pos = pos;
+
+    // normalize the passed in vectors
+    m_target = glm::normalize(target);
+    m_up = glm::normalize(up);
+
+    Init();
+}
+
+// Init quartenion
+void OGLDEVCamera::Init() {
+    glm::vec3 hTarget(m_target.x, 0.0f, m_target.z);
+    hTarget = glm::normalize(hTarget);
+
+    float angle = glm::degrees(asin(abs(hTarget.z)));
+    if (hTarget.z >= 0.0f)
+    {
+        if (hTarget.x >= 0.0f)
+        {
+            m_AngleH = 360.0f - angle;
+        }
+        else
+        {
+            m_AngleH = 180.0f + angle;
+        }
+    }
+    else
+    {
+        if (hTarget.x >= 0.0f)
+        {
+            m_AngleH = angle;
+        }
+        else
+        {
+            m_AngleH = 180.0f - angle;
+        }
+    }
+
+    m_AngleV = -glm::degrees(asin(m_target.y));
+
+    m_OnUpperEdge = false;
+    m_OnLowerEdge = false;
+    m_OnLeftEdge = false;
+    m_OnRightEdge = false;
+    m_mousePos.x = m_windowWidth / 2;
+    m_mousePos.y = m_windowHeight / 2;
 }
 
 void OGLDEVCamera::SetPosition(float x, float y, float z) {
@@ -68,6 +134,101 @@ void OGLDEVCamera::OnKeyboard(GLFWwindow* window, int key, int scancode, int act
             break;
         }
     }
+}
+
+void OGLDEVCamera::OnMouse(double x, double y) {
+    double deltaX = x - m_mousePos.x;
+    double deltaY = y - m_mousePos.y;
+    m_mousePos.x = x;
+    m_mousePos.y = y;
+
+    m_AngleH += (float)deltaX / 20.0f;
+    m_AngleV += (float)deltaY / 50.0f;
+
+    //std::cout << "deltaX: " << deltaX << "; deltaY: " << deltaY << std::endl;
+    if (abs(deltaX) <= MARGIN) {
+        if (x <= MARGIN) {
+            m_OnLeftEdge = true;
+        }
+        else if (x >= (m_windowWidth - MARGIN)) {
+            m_OnRightEdge = true;
+        }
+    }
+    else {
+        m_OnLeftEdge = false;
+        m_OnRightEdge = false;
+    }
+
+    if (abs(deltaY) <= MARGIN) {
+        if (y <= MARGIN) {
+            m_OnUpperEdge = true;
+        }
+        else if (y >= (m_windowHeight - MARGIN)) {
+            m_OnLowerEdge = true;
+        }
+    }
+    else {
+        m_OnUpperEdge = false;
+        m_OnLowerEdge = false;
+    }
+    
+    Update();
+}
+
+void OGLDEVCamera::OnRender()
+{
+    bool shouldUpdate = false;
+
+    if (m_OnLeftEdge) {
+        std::cout << "LEFT\n";
+        m_AngleH -= EDGE_STEP;
+        shouldUpdate = true;
+    }
+    else if (m_OnRightEdge) {
+        std::cout << "RIGHT\n";
+        m_AngleH += EDGE_STEP;
+        shouldUpdate = true;
+    }
+
+    if (m_OnUpperEdge) {
+        std::cout << "UPPER\n";
+        if (m_AngleV > -90.0f) {
+            m_AngleV -= EDGE_STEP;
+            shouldUpdate = true;
+        }
+    }
+    else if (m_OnLowerEdge) {
+        std::cout << "LOWER\n";
+        if (m_AngleV < 90.0f) {
+            m_AngleV += EDGE_STEP;
+            shouldUpdate = true;
+        }
+    }
+
+    if (shouldUpdate) {
+        Update();
+    }
+}
+
+void OGLDEVCamera::Update()
+{
+    Vector3f Yaxis(0.0f, 1.0f, 0.0f);
+
+    // Rotate the view vector by the horizontal angle around the vertical axis
+    Vector3f View(1.0f, 0.0f, 0.0f);    
+    View.Rotate(m_AngleH, Yaxis); // rotate using quaternion    
+    View.Normalize();
+
+    // Rotate the view vector by the vertical angle around the horizontal axis
+    Vector3f U = Yaxis.Cross(View);
+    U.Normalize();
+    View.Rotate(m_AngleV, U);
+
+    Vector3f normalizedView = View.Normalize();
+    m_target = glm::vec3(View.x, View.y, View.z);
+
+    Vector3f vector3fUp = normalizedView.Cross(U).Normalize();
+    m_up = glm::vec3(vector3fUp.x, vector3fUp.y, vector3fUp.z);
 }
 
 glm::mat4 OGLDEVCamera::GetMatrix() {

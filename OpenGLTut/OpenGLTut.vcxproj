@@ -155,6 +155,7 @@
     <ClCompile Include="Dependencies\glad\src\glad.c" />
     <ClCompile Include="Dependencies\OtherLibs\ShaderClass\Shader.cpp" />
     <ClCompile Include="Dependencies\OtherLibs\stb_image.cpp" />
+    <ClCompile Include="Dependencies\OtherLibs\OGLDEV\ogldev_math_3d.cpp" />
     <ClCompile Include="src\10_LightingMaps\E1_LightingMapSpecular.cpp" />
     <ClCompile Include="src\10_LightingMaps\T4_EmissionMap.cpp" />
     <ClCompile Include="src\11_LightCasters\E1_LightCastersDirectional.cpp" />
@@ -199,6 +200,7 @@
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystems3.cpp" />
     <ClCompile Include="src\5_CoordinateSystems\CoordinateSystemsTask1.cpp" />
     <ClCompile Include="src\6_CameraOGLDEV\1_MovingTheCamera.cpp" />
+    <ClCompile Include="src\6_CameraOGLDEV\2_MovingCameraWithQuaternion.cpp" />
     <ClCompile Include="src\6_CameraOGLDEV\OGLDEVCamera.cpp" />
     <ClCompile Include="src\6_CameraOGLDEV\OGLDEVWorldTransform.cpp" />
     <ClCompile Include="src\6_Camera\1_CameraCircle.cpp" />
@@ -259,6 +261,7 @@
     <ClInclude Include="Dependencies\OtherLibs\ModelClass\model.h" />
     <ClInclude Include="Dependencies\OtherLibs\ShaderClass\Shader.h" />
     <ClInclude Include="Dependencies\OtherLibs\stb_image.h" />
+    <ClInclude Include="Dependencies\OtherLibs\OGLDEV\ogldev_math_3d.h" />
     <ClInclude Include="src\6_CameraOGLDEV\OGLDEVCamera.h" />
     <ClInclude Include="src\6_CameraOGLDEV\OGLDEVWorldTransform.h" />
   </ItemGroup>
